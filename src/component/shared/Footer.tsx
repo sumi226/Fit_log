@@ -1,3 +1,5 @@
+import Image from "next/image";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   return (
@@ -6,24 +8,13 @@ const Footer = () => {
         {/* Left - Brand */}
         <div className="flex items-center gap-3">
           {/* Logo Icon */}
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#ccff00]">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 text-black"
-            >
-              <path
-                d="M13.5 2L5 13H11L10.5 22L19 11H13L13.5 2Z"
-                fill="currentColor"
-              />
-            </svg>
-          </div>
-
+        
           {/* Brand */}
-          <span className="text-lg font-black tracking-tight text-white">
-            FIT<span className="text-[#ccff00]">LOG</span>
-          </span>
+          <div className=" flex text-lg font-black tracking-tight text-white">
+            <Image src={logo} alt="FITLOG Logo" width={40} height={40} />
+            <h2>FILOG</h2>
+          </div>
+          
         </div>
 
         {/* Right - Copyright */}

@@ -62,18 +62,7 @@ const WorkoutActions = ({
         <button
           type="button"
           onClick={handleAddToPlan}
-          className="
-            flex flex-1
-            items-center justify-center gap-2
-            rounded-xl
-            bg-[#ccff00]
-            px-5 py-4
-            text-sm font-extrabold
-            text-black
-            transition-all duration-200
-            hover:bg-[#b8eb00]
-            hover:shadow-[0_0_25px_rgba(204,255,0,0.20)]
-          "
+          className=" flex flex-1 items-center justify-center gap-2 rounded-xl border border-white/20 bg-transparent  px-5 py-4 text-sm font-extrabold text-white transition-all duration-200 hover:border-[#ccff00] hover:bg-[#ccff00] hover:shadow-[0_0_25px_rgba(204,255,0,0.20)]  hover:text-black"
         >
           <CalendarPlus size={19} />
           Add to today's plan
@@ -82,21 +71,7 @@ const WorkoutActions = ({
         {/* Save */}
         <button
           type="button"
-          onClick={handleSaveForLater}
-          className="
-            flex flex-1
-            items-center justify-center gap-2
-            rounded-xl
-            border border-white/20
-            bg-transparent
-            px-5 py-4
-            text-sm font-extrabold
-            text-white
-            transition-all duration-200
-            hover:border-[#ccff00]
-            hover:bg-[#ccff00]
-            hover:text-black
-          "
+          className=" flex flex-1 items-center justify-center gap-2 rounded-xl border border-white/20 bg-transparent  px-5 py-4 text-sm font-extrabold text-white transition-all duration-200 hover:border-[#ccff00] hover:bg-[#ccff00] hover:shadow-[0_0_25px_rgba(204,255,0,0.20)]  hover:text-black"
         >
           <Bookmark size={19} />
           Save for later
@@ -104,12 +79,7 @@ const WorkoutActions = ({
       </div>
 
       {/* Toast */}
-      {toast && (
-        <Toast
-          message={toast}
-          onClose={() => setToast("")}
-        />
-      )}
+      {toast && <Toast message={toast} onClose={() => setToast("")} />}
     </>
   );
 };
