@@ -6,15 +6,15 @@ const Banner = () => {
     return (
       <section className="">
         <div className="container mx-auto mt-20 rounded-4xl gap-4  bg-[#0c0d10] p-20  text-white grid grid-cols-1 md:grid-cols-2">
-          <div text-left>
-            <p className="text-lg font-semibold text-[#c2f800]">
+          <div text-left space-y-4>
+            <p className="text- font-semibold text-[#c2f800]">
               WORKOUT LIBRARY
             </p>
             <h2 className="text-4xl font-bold">
               TRAIN WITH INTENT. LOG <br />
               EVERY SET.
             </h2>
-            <p className="mt-4 text-lg text-gray-300">
+            <p className="mt-4  text-gray-300">
               FitLog is a dark, no-nonsense gym companion: pick a lift, lock it{" "}
               <br /> into today's plan, and watch the week's work add up.
             </p>
