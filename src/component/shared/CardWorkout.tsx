@@ -16,7 +16,7 @@ interface CardWorkoutProps {
 
 const CardWorkout = ({ workout }: CardWorkoutProps) => {
   return (
-    <Link href={`/workout/${workout.id}`} className="group block">
+    <Link href={`/listed-workout/${workout.id}`} className="group block">
       <article
         className="
           overflow-hidden rounded-2xl
@@ -52,7 +52,8 @@ const CardWorkout = ({ workout }: CardWorkoutProps) => {
             {workout.muscleGroups.map((muscle) => (
               <span
                 key={muscle}
-                className="rounded-full border border-[#ccff00]/40 bg-[#ccff00]/10 px-3 py-1 text-[10px] font-bold tracking-wider text-[#ccff00]">
+                className="rounded-full border border-[#ccff00]/40 bg-[#ccff00]/10 px-3 py-1 text-[10px] font-bold tracking-wider text-[#ccff00]"
+              >
                 {muscle.toUpperCase()}
               </span>
             ))}
@@ -85,11 +86,7 @@ const CardWorkout = ({ workout }: CardWorkoutProps) => {
             </div>
 
             <div className="flex items-center gap-1.5">
-              <Star
-                size={15}
-                fill="currentColor"
-                className="text-[#ccff00]"
-              />
+              <Star size={15} fill="currentColor" className="text-[#ccff00]" />
               <span className="text-white">{workout.rating}</span>
             </div>
           </div>

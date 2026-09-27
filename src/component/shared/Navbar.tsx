@@ -1,82 +1,71 @@
 
+
 "use client";
 
-import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import logo from "@/assets/logo.png";
+import { usePlan } from "@/component/plan/planProvider";
 
 const Navbar = () => {
   const pathname = usePathname();
 
-  const navLinks = [
-    {
-      name: "Workout",
-      href: "/workout",
-    },
-    {
-      name: "My Plan",
-      href: "/my-plan",
-    },
-  ];
+  const { planCount, savedCount } = usePlan();
+
+  const isWorkoutActive =
+    pathname === "/" || pathname === "/workout";
+
+  const isPlanActive = pathname === "/my-plan";
 
   return (
-    <nav className="w-full border-b border-white/10 bg-[#0c0d10] text-white">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8">
-
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#08090b]/95 backdrop-blur-xl">
+      <nav className="container mx-auto flex h-20 items-center justify-between px-5">
         {/* Logo */}
         <Link
           href="/"
-          className="flex items-center gap-3 transition-opacity hover:opacity-80"
+          className="text-2xl font-black tracking-tight text-white"
         >
-          <Image
-            src={logo}
-            alt="FITLOG Logo"
-            width={42}
-            height={42}
-            className="h-10 w-10 object-contain"
-          />
-
-          <span className="text-xl font-extrabold tracking-wide">
-            FITLOG
-          </span>
+          FIT<span className="text-[#ccff00]">LOG</span>
         </Link>
 
         {/* Navigation */}
-        <div className="hidden items-center gap-2 md:flex">
-          {navLinks.map((link) => {
-            const active = pathname === link.href;
+        <div className="hidden items-center gap-8 md:flex">
+          <Link
+            href="/"
+            className={`text-sm font-bold uppercase tracking-wider transition-colors ${
+              isWorkoutActive
+                ? "text-[#ccff00]"
+                : "text-gray-400 hover:text-white"
+            }`}
+          >
+            Workout
+          </Link>
 
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`rounded-full px-6 py-2.5 text-sm font-semibold transition-all duration-200 ${
-                  active
-                    ? "bg-white text-black shadow-sm"
-                    : "text-gray-400 hover:bg-white/10 hover:text-white"
-                }`}
-              >
-                {link.name}
-              </Link>
-            );
-          })}
+          <Link
+            href="/my-plan"
+            className={`text-sm font-bold uppercase tracking-wider transition-colors ${
+              isPlanActive
+                ? "text-[#ccff00]"
+                : "text-gray-400 hover:text-white"
+            }`}
+          >
+            My Plan
+          </Link>
         </div>
 
-        {/* Right Side */}
-        <div className="flex items-center gap-2">
-
+        {/* Right Buttons */}
+        <div className="flex items-center gap-3">
           {/* Plan */}
-          <div
+          <Link
+            href="/my-plan"
             className="
-              group flex cursor-pointer items-center gap-2
-              rounded-full border border-white/30
+              group flex items-center gap-2
+              rounded-full
+              border border-white/20
               px-4 py-2
-              text-sm font-bold text-white
+              text-sm font-bold
+              text-white
               transition-all duration-200
-              hover:scale-105
               hover:border-[#ccff00]
               hover:bg-[#ccff00]
               hover:text-black
@@ -86,30 +75,31 @@ const Navbar = () => {
 
             <span
               className="
-                flex h-5 min-w-5 items-center justify-center
+                flex h-6 w-6
+                items-center justify-center
                 rounded-full
                 border border-white/30
-                bg-transparent
-                px-1
-                text-xs text-white
-                transition-all duration-200
+                text-xs
+                transition-colors
                 group-hover:border-black
                 group-hover:text-black
               "
             >
-              3
+              {planCount}
             </span>
-          </div>
+          </Link>
 
           {/* Saved */}
-          <div
+          <Link
+            href="/my-plan?tab=saved"
             className="
-              group flex cursor-pointer items-center gap-2
-              rounded-full border border-white/30
+              group flex items-center gap-2
+              rounded-full
+              border border-white/20
               px-4 py-2
-              text-sm font-bold text-white
+              text-sm font-bold
+              text-white
               transition-all duration-200
-              hover:scale-105
               hover:border-[#ccff00]
               hover:bg-[#ccff00]
               hover:text-black
@@ -119,24 +109,22 @@ const Navbar = () => {
 
             <span
               className="
-                flex h-5 min-w-5 items-center justify-center
+                flex h-6 w-6
+                items-center justify-center
                 rounded-full
                 border border-white/30
-                bg-transparent
-                px-1
-                text-xs text-white
-                transition-all duration-200
+                text-xs
+                transition-colors
                 group-hover:border-black
                 group-hover:text-black
               "
             >
-              8
+              {savedCount}
             </span>
-          </div>
-
+          </Link>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 };
 
