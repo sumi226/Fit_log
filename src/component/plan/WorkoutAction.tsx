@@ -71,6 +71,7 @@ const WorkoutActions = ({
         {/* Save */}
         <button
           type="button"
+          onClick={handleSaveForLater}
           className=" flex flex-1 items-center justify-center gap-2 rounded-xl border border-white/20 bg-transparent  px-5 py-4 text-sm font-extrabold text-white transition-all duration-200 hover:border-[#ccff00] hover:bg-[#ccff00] hover:shadow-[0_0_25px_rgba(204,255,0,0.20)]  hover:text-black"
         >
           <Bookmark size={19} />
