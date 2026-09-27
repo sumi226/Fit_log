@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/component/shared//Navbar";
 import { PlanProvider}  from "@/component/plan/planProvider";
+import Footer from "@/component/shared/Footer";
 import Banner from "@/component/homepage/Banner";
 
 const geistSans = Geist({
@@ -33,7 +34,47 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Navbar />
           {children}
           </PlanProvider>
+              <Footer />;
       </body>
     </html>
   );
 }
+
+// import type { Metadata } from "next";
+
+// import Navbar from "@/component/layout/Navbar";
+// import Footer from "@/component/layout/Footer";
+// import { PlanProvider } from "@/component/plan/PlanProvider";
+
+// import "./globals.css";
+
+// export const metadata: Metadata = {
+//   title: "FITLOG",
+//   description: "Your workout library and daily plan",
+// };
+
+// export default function RootLayout({
+//   children,
+// }: Readonly<{
+//   children: React.ReactNode;
+// }>) {
+//   return (
+//     <html lang="en">
+//       <body className="bg-[#08090b]">
+//         <PlanProvider>
+//           <div className="flex min-h-screen flex-col">
+//             <Navbar />
+
+//             <main className="flex-1">
+//               {children}
+//             </main>
+
+            
+//           </div>
+//         </PlanProvider>
+//       </body>
+//     </html>
+//   );
+// }
+
+
