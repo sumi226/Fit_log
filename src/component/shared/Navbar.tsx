@@ -1,7 +1,8 @@
 
 
 "use client";
-
+import Image from "next/image";
+import logo from "@/assets/logo.png";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -21,12 +22,13 @@ const Navbar = () => {
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[#08090b]/95 backdrop-blur-xl">
       <nav className="container mx-auto flex h-20 items-center justify-between px-5">
         {/* Logo */}
-        <Link
-          href="/"
-          className="text-2xl font-black tracking-tight text-white"
-        >
-          FIT<span className="text-[#ccff00]">LOG</span>
-        </Link>
+
+        <div className="flex items-center gap-2 text-lg font-black uppercase tracking-wider text-white">
+          <Image src={logo} alt="FITLOG Logo" width={40} height={40}  />
+          <h2>FITLOG</h2>
+          
+        </div>
+       
 
         {/* Navigation */}
         <div className="hidden items-center gap-8 md:flex">
